@@ -1,0 +1,489 @@
+body {
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 92%;
+    margin: 0 auto;
+}
+
+header {
+    margin: 0 80px;
+    box-sizing: border-box;
+    min-height: 90px;
+    width: 92%;
+    background-color: white;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header h3 {
+    color: black;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+
+}
+
+.menu a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu img {
+    width: 20px;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 15px;
+}
+
+.login {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.login img {
+    max-height: 20px;
+}
+
+.video {
+    height: 88vh;
+    background-color: black;
+}
+
+
+/* NOTICIAS */
+
+.noticias {
+    height: 100vh;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.noticias .img_noticia {
+    height: 70%;
+    width: 40%;
+    background-color: wheat;
+}
+
+.noticias .conteudo_noticia {
+    height: 60%;
+    width: 40%;
+}
+
+.noticias .titulo_noticia {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.noticias .texto_noticia {
+    font-size: 25px;
+    text-align: center;
+}
+
+
+/* CARDS DE MODELOS DE CARROS */
+
+.container_modelos {
+    min-height: 140vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 100px;
+    padding: 40px 0;
+    background-color: rgb(49, 46, 46);
+}
+
+.container_modelos .titulo {
+    grid-column: 1/-1;
+    grid-row: 1;
+    height: 140px;
+    font-size: 65px;
+    text-align: center;
+}
+
+.container_modelos .modelo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-self: center;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 50px;
+    height: 90vh;
+    width: 92vh;
+    background-color: rgb(20, 53, 53);
+    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.container_modelos .modelo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Ocupa 100% de largura e altura do card */
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.45) 0%,
+            /* Sombra no topo (para o logo/nome) */
+            rgba(0, 0, 0, 0) 30%,
+            /* Meio totalmente transparente */
+            rgba(0, 0, 0, 0) 60%,
+            /* Meio totalmente transparente */
+            rgba(0, 0, 0, 0.85) 100%
+            /* Sombra forte embaixo (para a descrição) */
+        );
+    pointer-events: none;
+}
+
+.container_modelos .modelo:hover {
+    transform: scale(1.04);
+}
+
+.um {
+    background: url(static/modelos/imagem_fundo/porsche911Card.webp);
+}
+
+.dois {
+    background-image: url(static/modelos/imagem_fundo/718background.webp);
+}
+
+.tres {
+    background-image: url(static/modelos/imagem_fundo/taycanbakcground.webp);
+}
+
+.quatro {
+    background-image: url(static/modelos/imagem_fundo/panamera.webp);
+}
+
+.modelo .conteudo .titulo_modelo {
+    width: 100%;
+    height: auto;
+
+}
+
+.titulo_modelo .imagem_titulo {
+    position: relative;
+    z-index: 1;
+    min-width: 100px;
+    height: auto;
+    padding: 30px;
+    justify-self: center;
+    align-self: center;
+    display: block;
+    filter: invert(100%);
+
+}
+
+.modelo.um .imagem_titulo {
+    width: 100px;
+}
+
+.modelo.dois .imagem_titulo {
+    width: 90px;
+}
+
+.modelo.tres .imagem_titulo {
+    width: 180px;
+}
+
+.modelo.quatro .imagem_titulo {
+    width: 280px;
+}
+
+.modelo .conteudo_modelo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    margin: 31px 0;
+    padding: 0 31px;
+}
+
+.conteudo_modelo {
+    box-sizing: border-box;
+}
+
+.modelo .info {
+    width: 90%;
+}
+
+.modelo .combustivel {
+    background-color: #9C9C9F4D;
+    border-radius: 50px;
+    padding: 4px 12px;
+    width: 50px;
+    height: 26px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modelo p {
+    font-size: 14px;
+}
+
+.modelo .botao_explorar {
+    background-color: #6B6B703A;
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    align-self: flex-end;
+    justify-content: baseline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.modelo .botao_explorar:hover {
+    border-color: white;
+}
+
+.container_modelos .modelo:hover .botao_explorar {
+    transform: scale(1.2);
+
+}
+
+.modelo .botao_explorar img {
+    width: 25px;
+}
+
+.modelo img {
+    text-align: center;
+}
+
+.modelo .link_seta {
+    position: relative;
+    padding: 12px;
+}
+
+
+/* COMPRE VEICULOS NOVOS E SEMINOVOS */
+
+.compre_veiculos {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000000;
+    padding-left: 12%;
+    box-sizing: border-box;
+}
+
+.img_veiculos {
+    justify-self: end;
+    align-self: flex-end;
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+}
+
+.img_veiculos img {
+    width: 100%;
+    height: auto;
+}
+
+.compre_conteudo {
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+}
+
+.compre_titulo {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.compre_titulo p {
+    margin: 0;
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.compre_descricao {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.compre_descricao p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #d4d4d4;
+}
+
+.compre_link {
+    width: 100%;
+}
+
+.compre_link a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d3d3de;
+    color: #000000;
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 6px;
+    transition: background-color 0.25s ease;
+}
+
+.compre_link a:hover {
+    background-color: #ffffff;
+}
+
+.compre_link a p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #0e0e10;
+    color: #ffffff;
+    font-family: sans-serif;
+    margin: 0px 80px;
+    padding: 100px 60px 60px;
+}
+
+.grid_links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 48px;
+    column-gap: 32px;
+    margin-bottom: 56px;
+}
+
+.titulo_secao {
+    display: block;
+    font-size: 13px;
+    color: #8c8c8c;
+    margin-bottom: 16px;
+}
+
+.idioma_atual {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.idioma_atual .bandeira {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.idioma_atual a {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-left: 8px;
+    transition: color 0.2s ease;
+}
+
+.idioma_atual a:hover {
+    color: #b3b3b3;
+}
+
+.empresa ul,
+.web ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.empresa a,
+.web a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.empresa a:hover,
+.web a:hover {
+    color: #9e9e9e;
+}
+
+/* Redes sociais */
+.redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.redes a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: opacity 0.2s ease;
+}
+
+.redes a:hover {
+    opacity: 0.6;
+}
+
+.redes img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+}
+
+/* Logo centralizado na base */
+.logo_porsche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    filter: invert(100%);
+}
+
+.logo_porsche img {
+    width: 190px;
+    height: auto;
+}
