@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Porsche</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="cadastro_pagina">
+
+        <div class="cadastro_video">
+            <video src="static/cadastro.mp4" autoplay muted loop playsinline></video>
+        </div>
+
+        <div class="cadastro_card">
+            <a href="index.html" class="cadastro_logo">
+                <img src="static/menu/porsche-logo.svg" alt="PORSCHE">
+            </a>
+
+            <form action="../php/cadastro_ok.php" method="post">
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="email@servidoremail.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar">Confirmar senha</label>
+                    <input type="password" id="confirmar" name="confirmar" placeholder="Repita a senha" minlength="6" required>
+                </div>
+
+                <div class="botoes">
+                    <button type="submit" class="botao_cadastrar">Cadastrar</button>
+                    <button type="reset" class="botao_limpar">Limpar</button>
+                </div>
+            </form>
+
+            <p class="cadastro_texto">
+                Já possui uma conta Porsche?
+                <a href="login.html">Faça login</a>
+            </p>
+        </div>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo | Porsche</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="produto_pagina">
+
+    <div class="topo_produto">
+        <header>
+            <div class="menu">
+                <a href="" class="preto">
+                    <img src="static/menu/menu-icon.svg" alt="">
+                    <p>Menu</p>
+                </a>
+            </div>
+            <div class="logo">
+                <a href="index.html" class="preto"><img src="static/menu/porsche-logo.svg" alt="PORSCHE"></a>
+            </div>
+            <div class="login">
+                <a href="login.html" class="preto">
+                    <img src="static/menu/cadastro.svg" alt="LOGIN">
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <div class="produto_palco">
+        <div class="produto_cinza">
+            <img id="p_titulo_svg" src="" alt="">
+        </div>
+        <img class="produto_carro" id="p_carro" src="" alt="">
+    </div>
+
+      <div class="produto_info">
+        <h1 id="p_nome"></h1>
+
+        <div class="destaques">
+            <div class="destaque">
+                <p class="destaque_valor" id="p_pot"></p>
+                <p class="destaque_rotulo">Potência</p>
+            </div>
+            <div class="destaque">
+                <p class="destaque_valor" id="p_vel"></p>
+                <p class="destaque_rotulo">Velocidade máxima</p>
+            </div>
+            <div class="destaque">
+                <p class="destaque_valor" id="p_comb"></p>
+                <p class="destaque_rotulo">Combustível</p>
+            </div>
+            <div class="destaque destaque_preco">
+                <p class="destaque_rotulo">A partir de</p>
+                <p class="destaque_valor" id="p_preco"></p>
+            </div>
+        </div>
+
+        <div class="tabela">
+            <div class="linha">
+                <p class="linha_rotulo">Ano-modelo</p>
+                <p class="linha_valor" id="p_ano"></p>
+            </div>
+            <div class="linha">
+                <p class="linha_rotulo">Câmbio</p>
+                <p class="linha_valor" id="p_cambio"></p>
+            </div>
+            <div class="linha">
+                <p class="linha_rotulo">Aceleração 0 - 100 km/h</p>
+                <p class="linha_valor" id="p_acel"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- troque pelo footer da página inicial -->
+    <footer class="rodape_lista">
+        <p>contato@porsche-fake.com</p>
+    </footer>
+
+    <script>
+        const modelos = {
+            "718": {
+                nome: "718 Boxster", ano: "2027", combustivel: "Gasolina", cambio: "PDK (Automático)",
+                aceleracao: "5,1 s", potencia: "300 cv", velocidade: "275 km/h", preco: "R$ 700.000",
+                carro: "static/listaCarros/718boxter.avif", titulo: "static/modelos/titulos/718.svg"
+            },
+            "911": {
+                nome: "911 GT3", ano: "2027", combustivel: "Gasolina", cambio: "PDK (Automático)",
+                aceleracao: "4,1 s", potencia: "401 cv", velocidade: "294 km/h", preco: "R$ 2.300.000",
+                carro: "static/listaCarros/911gt.avif", titulo: "static/modelos/titulos/911.svg"
+            },
+            "panamera": {
+                nome: "Panamera Turbo E-Hybrid", ano: "2027", combustivel: "Híbrido", cambio: "PDK (Automático)",
+                aceleracao: "3,2 s", potencia: "680 cv", velocidade: "315 km/h", preco: "R$ 1.700.000",
+                carro: "static/listaCarros/panamera-turbo.avif", titulo: "static/modelos/titulos/panamera.svg"
+            },
+            "cayenne": {
+                nome: "Cayenne S Electric", ano: "2027", combustivel: "Elétrico", cambio: "Automático",
+                aceleracao: "3,8 s", potencia: "666 cv", velocidade: "250 km/h", preco: "R$ 1.250.000",
+                carro: "static/listaCarros/cayenne.avif", titulo: "static/modelos/titulos/cayenne.svg"
+            },
+            "taycan": {
+                nome: "Taycan", ano: "2027", combustivel: "Elétrico", cambio: "2 marchas (Automático)",
+                aceleracao: "4,8 s", potencia: "408 cv", velocidade: "230 km/h", preco: "R$ 850.000",
+                carro: "static/carros/taycan.png", titulo: "static/modelos/titulos/taycan.svg"
+            },
+            "macan": {
+                nome: "Macan Electric", ano: "2027", combustivel: "Elétrico", cambio: "Automático", 
+                aceleracao: "5,2 s", potencia: "408 cv", velocidade: "220 km/h", preco: "R$ 650.000",
+                carro: "static/listaCarros/macan-turbo.avif", titulo: "static/modelos/titulos/macan.svg"
+            }
+        };
+
+        // lê ?modelo=... da URL; se não existir ou for inválido, mostra o 911
+        const params = new URLSearchParams(window.location.search);
+        const m = modelos[params.get("modelo")] || modelos["911"];
+
+        document.title = m.nome + " | Porsche";
+        document.getElementById("p_nome").textContent = m.nome;
+        document.getElementById("p_pot").textContent = m.potencia;
+        document.getElementById("p_vel").textContent = m.velocidade;
+        document.getElementById("p_comb").textContent = m.combustivel;
+        document.getElementById("p_preco").textContent = m.preco;
+        document.getElementById("p_ano").textContent = m.ano;
+        document.getElementById("p_cambio").textContent = m.cambio;
+        document.getElementById("p_acel").textContent = m.aceleracao;
+        document.getElementById("p_carro").src = m.carro;
+        document.getElementById("p_carro").alt = "Porsche " + m.nome;
+        document.getElementById("p_titulo_svg").src = m.titulo;
+    </script>
+
+</body>
+
+</html>

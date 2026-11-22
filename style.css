@@ -1,6 +1,7 @@
 body {
     margin: 0;
     color: white;
+    background-color: #000000;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -9,98 +10,237 @@ body {
     margin: 0 auto;
 }
 
-header {
-    margin: 0 80px;
-    box-sizing: border-box;
-    min-height: 90px;
-    width: 92%;
-    background-color: white;
-    display: grid;
-    justify-self: center;
-    grid-template-columns: 1fr 1fr 1fr;
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000000;
+    font-family: "Montserrat", Arial, sans-serif;
 }
 
-header h3 {
-    color: black;
+.video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+.video::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 450px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.menu,
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    transition: 0.4s ease;
 }
 
 .menu {
-    display: flex;
-    align-items: center;
+    height: 20px;
+    border-radius: 8px;
 
 }
 
+.login {
+    height: 30px;
+    border-radius: 20px;
+}
+
+.menu:hover,
+.login:hover {
+    background-color: rgba(124, 124, 124, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.login {
+    text-align: right;
+}
+
 .menu a {
-    text-decoration: none;
     display: flex;
     align-items: center;
-    flex-direction: row;
+    gap: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu p {
+    margin: 0;
 }
 
 .menu img {
     width: 20px;
-
-}
-
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
 }
 
 .logo img {
-    max-height: 15px;
-}
-
-.login {
-    display: flex;
-    justify-content: right;
-    align-items: center;
+    display: block;
+    width: 200px;
+    height: auto;
+    filter: invert(100%);
 }
 
 .login img {
-    max-height: 20px;
+    width: 26px;
+    height: auto;
 }
 
-.video {
-    height: 88vh;
-    background-color: black;
+.hero_texto {
+    position: absolute;
+    left: 150px;
+    bottom: 100px;
+    z-index: 2;
+}
+
+.hero_texto h1 {
+    margin: 0 0 40px 0;
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 110px;
+    letter-spacing: -2px;
+    color: #ffffff;
+}
+
+.botao_saiba {
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 12px;
+    background-color: rgba(80, 80, 80, 0.6);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.botao_saiba:hover {
+    background-color: rgba(120, 120, 120, 0.7);
 }
 
 
 /* NOTICIAS */
 
 .noticias {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
-    background-color: grey;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    background-color: #000000;
+    color: white;
+    margin: 80px 0;
+}
+
+.noticia {
+    grid-area: 1 / 1;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    gap: 100px;
+    justify-content: space-around;
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 1s;
+}
+
+.noticia.ativa {
+    opacity: 1;
+    visibility: visible;
 }
 
 .noticias .img_noticia {
+    border-radius: 20px;
+    overflow: hidden;
     height: 70%;
     width: 40%;
-    background-color: wheat;
+
+    background-size: cover;
 }
 
-.noticias .conteudo_noticia {
-    height: 60%;
-    width: 40%;
+.img_noticia img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.noticias .titulo_noticia {
-    font-size: 50px;
+.conteudo_noticia {
+    font-family: "Montserrat", Arial, sans-serif;
+
+    padding: 0 20px;
+    height: 50%;
+    width: 45%;
+}
+
+.titulo_noticia p {
     text-align: center;
-    margin-bottom: 100px;
+    display: block;
+    margin: 0 0 100px 0;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 42px;
+    color: #ffffff;
+    padding: 15px;
+    border-bottom: 2px solid rgb(142, 7, 7);
 }
 
-.noticias .texto_noticia {
-    font-size: 25px;
-    text-align: center;
+.titulo_noticia p::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 3px;
+    margin-top: 20px;
+}
+
+.texto_noticia {
+    text-align: justify;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+    color: #cfcfcf;
 }
 
 
@@ -113,15 +253,16 @@ header h3 {
     grid-template-rows: auto 1fr;
     row-gap: 100px;
     padding: 40px 0;
-    background-color: rgb(49, 46, 46);
 }
 
 .container_modelos .titulo {
     grid-column: 1/-1;
     grid-row: 1;
-    height: 140px;
+    height: 120px;
     font-size: 65px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container_modelos .modelo {
@@ -163,19 +304,19 @@ header h3 {
     transform: scale(1.04);
 }
 
-.um {
+.bg-911 {
     background: url(static/modelos/imagem_fundo/porsche911Card.webp);
 }
 
-.dois {
+.bg-718 {
     background-image: url(static/modelos/imagem_fundo/718background.webp);
 }
 
-.tres {
+.bg-taycan {
     background-image: url(static/modelos/imagem_fundo/taycanbakcground.webp);
 }
 
-.quatro {
+.bg-panamera {
     background-image: url(static/modelos/imagem_fundo/panamera.webp);
 }
 
@@ -198,19 +339,19 @@ header h3 {
 
 }
 
-.modelo.um .imagem_titulo {
+.modelo.bg-911 .imagem_titulo {
     width: 100px;
 }
 
-.modelo.dois .imagem_titulo {
+.modelo.bg-718 .imagem_titulo {
     width: 90px;
 }
 
-.modelo.tres .imagem_titulo {
+.modelo.bg-taycan .imagem_titulo {
     width: 180px;
 }
 
-.modelo.quatro .imagem_titulo {
+.modelo.bg-panamera .imagem_titulo {
     width: 280px;
 }
 
@@ -246,9 +387,6 @@ header h3 {
     align-items: center;
 }
 
-.modelo p {
-    font-size: 14px;
-}
 
 .modelo .botao_explorar {
     background-color: #6B6B703A;
@@ -313,6 +451,7 @@ header h3 {
 .img_veiculos img {
     width: 100%;
     height: auto;
+    z-index: 200;
 }
 
 .compre_conteudo {
@@ -378,11 +517,10 @@ header h3 {
 /* FOOTER */
 
 footer {
-    background-color: #0e0e10;
+    background-color: #000000;
     color: #ffffff;
     font-family: sans-serif;
-    margin: 0px 80px;
-    padding: 100px 60px 60px;
+    padding: 100px 80px 60px;
 }
 
 .grid_links {
@@ -479,11 +617,548 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 70px;
     filter: invert(100%);
 }
 
 .logo_porsche img {
     width: 190px;
     height: auto;
+}
+
+/* CADASTRO */
+
+/* ---------- página de cadastro ---------- */
+.cadastro_pagina {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+/* vídeo de fundo, discreto */
+.cadastro_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.cadastro_video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1);
+    /* escurece o vídeo para ele não ter tanto destaque */
+}
+
+/* sombra extra em degradê por cima do vídeo */
+.cadastro_video::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+}
+
+/* retângulo central */
+.cadastro_card {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 520px;
+    /* era 440px */
+    padding: 40px;
+    border-radius: 16px;
+    background-color: rgba(15, 15, 15, 0.92);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.cadastro_logo {
+    display: block;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.cadastro_logo img {
+    width: 180px;
+    height: auto;
+    filter: invert(100%);
+    /* logo preto vira branco */
+}
+
+/* campos */
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #bdbdbd;
+}
+
+.campo input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    /* era 48px */
+    padding: 0 16px;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-color: #e6e6e6;
+    font-family: inherit;
+    font-size: 15px;
+    color: #111111;
+    outline: none;
+    transition: background-color 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.campo input::placeholder {
+    color: #8a8a8a;
+}
+
+/* mouse em cima */
+.campo input:hover {
+    background-color: #f5f5f5;
+    border-color: #9b9b9b;
+}
+
+/* campo selecionado */
+.campo input:focus {
+    background-color: #ffffff;
+    border-color: #9b9b9b;
+}
+
+/* botões */
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.botoes button {
+    flex: 1;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s, transform 0.15s;
+}
+
+.botoes button:active {
+    transform: scale(0.97);
+}
+
+.botao_cadastrar {
+    color: #3e3e3e;
+}
+
+.botao_cadastrar:hover {
+    background-color: #bebebe;
+}
+
+
+.botao_limpar {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+.botao_limpar:hover {
+    background-color: #555555;
+}
+
+/* texto de baixo */
+.cadastro_texto {
+    margin: 28px 0 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: #bdbdbd;
+}
+
+.cadastro_texto a {
+    margin-left: 6px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #3b3b3b;
+    transition: color 0.25s;
+}
+
+.cadastro_texto a:hover {
+    color: #959595;
+}
+
+/* ---------- página de listar modelos ---------- */
+.lista_pagina {
+    margin: 0;
+    background-color: #f0f0f2;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.preto {
+    filter: invert(100%);
+}
+
+/* faixa preta atrás da header, com a mesma altura da header da página inicial */
+.topo_lista {
+    display: grid;
+    width: 100%;
+    height: 90px;
+    /* NOVO: igual ao min-height da header da home */
+}
+
+.lista_titulo {
+    margin: 70px 0 0 4%;
+    text-align: left;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    color: #111111;
+}
+
+.lista_modelos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 150px 30px;
+    /* ALTERADO: coluna de 40px para 30px */
+    padding: 150px 40px 100px 40px;
+    /* ALTERADO: laterais de 60px para 40px */
+}
+
+/* card */
+.modelo {
+    position: relative;
+    box-sizing: border-box;
+    width: 500px;
+    /* ALTERADO: era 380px */
+    height: 500px;
+    padding: 80px 30px 30px 30px;
+    border-radius: 28px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modelo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* imagem do carro: sobe para fora do card e fica por cima dele */
+.img_carro {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate(-50%, 45px);
+    /* 45px da imagem entram no card */
+    width: 450px;
+    height: auto;
+    z-index: 2;
+}
+
+.modelo h2 {
+    margin: 0 0 16px 0;
+    font-size: 28px;
+    font-weight: 400;
+    color: #111111;
+}
+
+/* etiquetas */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    background-color: #e3e3e6;
+    font-size: 13px;
+    color: #111111;
+}
+
+.chip_ano {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* dados */
+.dados {
+    margin: 40px 0 44px 0;
+}
+
+.dado {
+    margin-bottom: 28px;
+}
+
+.dado p {
+    margin: 0;
+}
+
+.valor {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.rotulo {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #5e5e5e;
+}
+
+/* botão */
+.botao_modelo {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 18px 0;
+    border-radius: 10px;
+    background-color: #000000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.botao_modelo:hover {
+    background-color: #3a3a3a;
+}
+
+.rodape_lista {
+    padding: 30px 0;
+    background-color: #000000;
+    text-align: center;
+    font-size: 14px;
+    color: #bdbdbd;
+}
+
+.rodape_lista p {
+    margin: 0;
+}
+
+/* PRODUTO CARRO */
+
+.produto_pagina {
+    margin: 0;
+    background-color: #ffffff;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+/* deixa menu, logo e login pretos (inverte o branco da header) */
+.preto {
+    filter: invert(100%);
+}
+
+/* grid para a header continuar centralizada, como na home */
+.topo_produto {
+    display: grid;
+    width: 100%;
+}
+
+/* div branca que guarda o carro */
+.produto_palco {
+    position: relative;
+    width: 100%;
+    height: 620px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* div cinza clara: sombra suave, mais escura embaixo e sumindo para cima */
+.produto_cinza {
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    height: 420px;
+    background: linear-gradient(to top, #d9d9dc, rgba(255, 255, 255, 0));
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* nome do modelo em svg, atrás do carro */
+.produto_cinza img {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: invert(70%);
+    width: 600px;
+    height: auto;
+}
+
+/* carro por cima de tudo */
+.produto_carro {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 900px;
+    height: auto;
+    z-index: 2;
+}
+
+/* div cinza escura arredondada */
+/* div cinza escura arredondada */
+.produto_info {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 92%;
+    margin: 0 auto 80px auto;
+    padding: 60px;
+    border-radius: 50px;
+    background-color: #2b2b2d;
+}
+
+.produto_info h1 {
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 72px;
+    color: #ffffff;
+}
+
+/* destaques: 3 em cima, preço embaixo ocupando a linha toda */
+.destaques {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.destaque {
+    box-sizing: border-box;
+    padding: 30px 32px;
+    border-radius: 24px;
+    background-color: #4a4a4e;
+}
+
+.destaque p {
+    margin: 0;
+}
+
+.destaque_valor {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56px;
+    color: #ffffff;
+}
+
+.destaque_rotulo {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #d0d0d0;
+}
+
+/* preço em destaque: fundo claro, largura total */
+.destaque_preco {
+    grid-column: 1 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.destaque_preco .destaque_rotulo {
+    margin-top: 0;
+    font-size: 20px;
+    color: #555555;
+}
+
+.destaque_preco .destaque_valor {
+    font-size: 56px;
+    line-height: 64px;
+    color: #111111;
+}
+
+/* tabela com o resto das informações */
+.tabela {
+    display: flex;
+    flex-direction: column;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #5c5c60;
+}
+
+.linha p {
+    margin: 0;
+}
+
+.linha_rotulo {
+    font-size: 18px;
+    font-weight: 300;
+    color: #d0d0d0;
+}
+
+.linha_valor {
+    font-size: 28px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+/* chips à direita */
+.info_chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.info_chip {
+    box-sizing: border-box;
+    padding: 22px 32px;
+    border-radius: 24px;
+    background-color: #4a4a4e;
+    color: #ffffff;
+}
+
+.info_chip_valor {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 44px;
+    color: #ffffff;
+}
+
+.info_chip_rotulo {
+    margin: 6px 0 0 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #ffffff;
 }

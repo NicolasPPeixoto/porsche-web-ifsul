@@ -9,41 +9,100 @@
 </head>
 
 <body>
-    <header>
-        <div class="menu">
-            <a href="">
-                <img src="static/barra-de-menu.png" alt="">
-                <h3>Menu</h3>
-            </a>        
-        </div>
-        <div class="logo">
-            <img src="static/porsche-logo.svg" alt="PORSCHE">
-        </div>
-        <div class="login"><img src="static/Empresa (1).png" alt="LOGIN"></div>
-    </header>
-    <div class="video">
+    <section class="hero">
+        <header>
+            <div class="menu">
+                <a href="">
+                    <img src="static/menu/menu-icon.svg" alt="">
+                    <p>Menu</p>
+                </a>
+            </div>
+            <div class="logo">
+                <a href="">
+                    <img src="static/menu/porsche-logo.svg" alt="PORSCHE">
+                </a>
+            </div>
+            <div class="login">
+                <a href="cadastro.html">
+                    <img src="static/menu/cadastro.svg" alt="LOGIN">
+                </a>
+            </div>
+        </header>
 
+        <div class="video">
+            <video src="static/macan.mp4" autoplay muted loop playsinline></video>
         </div>
+
+        <div class="hero_texto">
+            <h1>Macan GTS.</h1>
+            <a href="produtoCarro.html?modelo=macan" class="botao_saiba">Saiba mais</a>
+        </div>
+    </section>
     <div class="container">
-
-        
         <div class="noticias">
-            <div class="conteudo_noticia">
-                <div class="titulo_noticia">
-                    <p>Titulo titulo titulo</p>
+            <div class="noticia ativa">
+                <div class="conteudo_noticia um">
+                    <div class="titulo_noticia">
+                        <p>Nossa nova casa digital</p>
+                    </div>
+                    <div class="texto_noticia">A Porsche sempre acreditou que a experiência começa antes da primeira
+                        partida. Hoje, essa ideia ganha um novo espaço: um showroom online onde cada modelo pode ser
+                        explorado em detalhes, configurado ao seu gosto e acompanhado até a entrega.</div>
                 </div>
-                <div class="texto_noticia">Texto texto texto texto texto texto texto texto texto texto texto texto texto
-                    texto texto texto texto texto texto</div>
+
+                <div class="img_noticia"><img src="static/noticias/nova-casa-digital.jpg"
+                        alt="Showroom digital da Porsche"></div>
             </div>
 
-            <div class="img_noticia"><img src="" alt=""></div>
+            <div class="noticia">
+                <div class="conteudo_noticia dois">
+                    <div class="titulo_noticia">
+                        <p>Inspirada na lenda</p>
+                    </div>
+                    <div class="texto_noticia">O conceito Porsche 911 Aurora é o primeiro de sua linhagem, e seu design
+                        liga a herança da marca ao presente. Ele usa as linhas clássicas dos anos 1960 como ponto de
+                        partida para pensar o esportivo do futuro.</div>
+                </div>
+
+                <div class="img_noticia"><img src="static/noticias/porsche-901.jpg" alt="Conceito Porsche 911 Aurora">
+                </div>
+            </div>
+
+            <div class="noticia">
+                <div class="conteudo_noticia tres">
+                    <div class="titulo_noticia">
+                        <p>Porsche Experience</p>
+                    </div>
+                    <div class="texto_noticia">Os novos cursos de pilotagem chegam com turmas para iniciantes e
+                        experientes. Em pista fechada, instrutores certificados ensinam controle, frenagem e traçado,
+                        com
+                        foco em segurança e prazer ao volante.</div>
+                </div>
+
+                <div class="img_noticia"><img src="static/noticias/driving-experience.jpg"
+                        alt="Curso de pilotagem Porsche Experience"></div>
+            </div>
+
+            <div class="noticia">
+                <div class="conteudo_noticia quatro">
+                    <div class="titulo_noticia">
+                        <p>Desempenho com consciência</p>
+                    </div>
+                    <div class="texto_noticia">A busca por velocidade agora anda junto com a responsabilidade ambiental.
+                        A marca apresenta seu programa de produção sustentável, com reaproveitamento de materiais e
+                        combustíveis sintéticos para os motores a combustão.</div>
+                </div>
+
+                <div class="img_noticia"><img src="static/noticias/charging.jpg" alt="Produção sustentável da Porsche">
+                </div>
+            </div>
         </div>
 
         <div class="container_modelos">
             <div class="titulo">
                 <p>Sua viagem com a Porsche começa agora.</p>
             </div>
-            <div class="modelo um">
+            <div class="modelo bg-911">
                 <div class="titulo_modelo">
                     <img class="imagem_titulo" src="static/modelos/titulos/911titulo.svg" alt="">
                 </div>
@@ -57,11 +116,11 @@
                         </div>
                     </div>
                     <div class="botao_explorar">
-                        <a href="index.html" class="link_seta"><img src="static/setaBranca.png" alt="SETA"></a>
+                        <a href="listaCarros.html" class="link_seta"><img src="static/modelos/setaBranca.png" alt="SETA"></a>
                     </div>
                 </div>
             </div>
-            <div class="modelo dois">
+            <div class="modelo bg-718">
                 <div class="titulo_modelo">
                     <img class="imagem_titulo" src="static/modelos/titulos/718svg.svg" alt="718">
                 </div>
@@ -75,11 +134,11 @@
                         </div>
                     </div>
                     <div class="botao_explorar">
-                        <a href="index.html" class="link_seta"><img src="static/setaBranca.png" alt="SETA"></a>
+                        <a href="listaCarros.html" class="link_seta"><img src="static/modelos/setaBranca.png" alt="SETA"></a>
                     </div>
                 </div>
             </div>
-            <div class="modelo tres">
+            <div class="modelo bg-taycan">
                 <div class="titulo_modelo">
                     <img class="imagem_titulo" src="static/modelos/titulos/taycan.svg" alt="TAYCAN">
                 </div>
@@ -93,11 +152,11 @@
                         </div>
                     </div>
                     <div class="botao_explorar">
-                        <a href="index.html"><img src="static/setaBranca.png" alt="SETA"></a>
+                        <a href="listaCarros.html"><img src="static/modelos/setaBranca.png" alt="SETA"></a>
                     </div>
                 </div>
             </div>
-            <div class="modelo quatro">
+            <div class="modelo bg-panamera">
                 <div class="titulo_modelo">
                     <img class="imagem_titulo" src="static/modelos/titulos/panamera.svg" alt="PANAMERA">
                 </div>
@@ -111,8 +170,8 @@
                         </div>
                     </div>
                     <div class="botao_explorar">
-                        <a href="index.html">
-                            <img src="static/setaBranca.png" alt="SETA">
+                        <a href="listaCarros.html">
+                            <img src="static/modelos/setaBranca.png" alt="SETA">
                         </a>
                     </div>
                 </div>
@@ -134,7 +193,7 @@
             </div>
         </div>
         <div class="img_veiculos">
-            <img src="static/filters_format(webp)_quality(80)" alt="">
+            <img src="static/compreVeiculos/filters_format(webp)_quality(80)" alt="">
         </div>
     </div>
     <footer>
@@ -177,9 +236,12 @@
         </div>
 
         <div class="logo_porsche">
-            <img src="static/porsche-logo.svg" alt="Porsche">
+            <a href="">
+                <img src="static/menu/porsche-logo.svg" alt="Porsche">
+            </a>
         </div>
     </footer>
+    <script src="noticias.js"></script>
 </body>
 
 </html>
